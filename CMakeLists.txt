@@ -16,6 +16,8 @@ string(TOLOWER ${CMAKE_BUILD_TYPE} LC_BUILD_TYPE)
 sfml_set_option(CLASP_GC boehm
   STRING "Choose the clasp garbage collector (boehm or mps)")
 
+
+#LIST(APPEND CMAKE_FIND_LIBRARY_SUFFIXES ".so")
 #This always results in clang 3.7 for me, where clasp was compiled with clang 3.6
 #set(CMAKE_CXX_COMPILER clang++)
 #set(CMAKE_C_COMPILER clang)
@@ -23,9 +25,13 @@ sfml_set_option(CLASP_GC boehm
 # project name
 project(CLASP-SFML)
 
+#Add library suffixes for OSX here.
+
+
 find_path(CLASP_INCLUDE_PATH clasp/clasp.h HINTS $ENV{CLASP_HOME}/include
   DOC "The include directory of clasp")
-find_path(SFML_INCLUDE_PATH SFML/System.hpp DOC "The include directory of SFML")
+find_path(SFML_INCLUDE_PATH SFML/System.hpp HINTS $ENV{SFML_INCLUDE_DIR}
+  DOC "The include directory of SFML")
 
 find_library(CLASP_CLBIND_LIB libclasp-clbind.so
   HINTS $ENV{CLASP_HOME}/build/clasp/Contents/execs/${CLASP_GC}/${LC_BUILD_TYPE}/lib
@@ -52,7 +58,7 @@ add_compile_options(-std=c++11
  
  set(BUILD_SHARED_LIBS TRUE)
 
- set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
+ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib/${CLASP_GC}/${LC_BUILD_TYPE})
  
  # add the subdirectories
  add_subdirectory(src/CLASP-SFML)

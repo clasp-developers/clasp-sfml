@@ -1,0 +1,29 @@
+#+OPTIONS: H:2
+
+* What is this?
+This is a binding for [[https://github.com/SFML/SFML][SFML]] that allows using the SFML libraries in [[https://github.com/drmeister/clasp][Clasp]].
+
+* How do I compile?
+I have not tested this binding with gcc, so you need to build Clasp with clang, and then build SFML with the same version of clang. Refer to the SFML documentation for building SFML.
+
+If you want CMake to find SFML automatically, you need to install SFML (make-install after building). If you don't want to install SFML (or have a gcc version already installed), you can set the environment variables SFML_INCLUDE_DIR and SFML_LIB_DIR, or specify the include directory and all required libraries as CMake parameters manually.
+
+If you have the environment variable CLASP_HOME, CMake should find both CLASP_INCLUDE_PATH and CLASP_CLBIND_LIB. Otherwise you need to set those manually.
+
+You can specificy the CMake variables CMAKE_BUILD_TYPE and CLASP_GC, currently defaulting to "Release" and "boehm". They influence which combination is built, which version of clasp-clbind is used, and where the resulting libraries are put.
+
+* What do I do with it?
+- Ultimately, all of SFML (possibly excluding the network library) should be accessible via CLASP-SFML. Currently some things don't work properly.
+- A small lisp test program can be found at https://github.com/HeyFlash/clasp-stuff/blob/master/sfml-test.lsp
+
+* Todo
+** SoundRecorder: There should be a to_object converter for std::vector<std::string> (is there?)
+** SoundBuffer: Missing Assignment operator
+** SoundSource: Missing to_object and from_object converters for const Vector3f&
+** SoundStream: Currently not handling struct Chunk: converters?
+** Sound : Missing assignment operator
+
+* Questions
+** SoundSource: How to handle copy constructors?
+** What to do with static functions
+** What to do with classes that have protected constructors, that are meant to be called by derived classes?
