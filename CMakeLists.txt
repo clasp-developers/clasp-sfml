@@ -33,7 +33,7 @@ find_path(CLASP_INCLUDE_PATH clasp/clasp.h HINTS $ENV{CLASP_HOME}/include
 find_path(SFML_INCLUDE_PATH SFML/System.hpp HINTS $ENV{SFML_INCLUDE_DIR}
   DOC "The include directory of SFML")
 
-find_library(CLASP_CLBIND_LIB libclasp-clbind.so
+find_library(CLASP_CLBIND_LIB clasp-clbind
   HINTS $ENV{CLASP_HOME}/build/clasp/Contents/execs/${CLASP_GC}/${LC_BUILD_TYPE}/lib
   DOC "The clasp clbind library")
 #find_path(EXTERNALS_CLASP_PATH gc_cpp.h DOC "The directory of externals-clasp")

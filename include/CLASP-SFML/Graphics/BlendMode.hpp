@@ -5,6 +5,8 @@
 
 #include <clasp/clbind/clbind.h>
 
+using namespace clbind;
+
 namespace translate
 {
 
@@ -81,5 +83,36 @@ namespace translate
   
   
 };
+
+
+inline class_<sf::BlendMode> registerBlendMode()
+{
+  return
+    class_<sf::BlendMode>("blend-mode")
+
+    .enum_<sf::BlendMode::Factor>(core::lisp_intern("*BLENDMODE-FACTOR-ENUM-MAPPER*", "SFML"))
+    [
+     value("blend-mode/factor/zero", sf::BlendMode::Factor::Zero),
+     value("blend-mode/factor/one", sf::BlendMode::Factor::One),
+     value("blend-mode/factor/src-color", sf::BlendMode::Factor::SrcColor),
+     value("blend-mode/factor/one-minus-src-color", sf::BlendMode::Factor::OneMinusSrcColor),
+     value("blend-mode/factor/dst-color", sf::BlendMode::Factor::DstColor),
+     value("blend-mode/factor/one-minus-dst-color", sf::BlendMode::Factor::OneMinusDstColor),
+     value("blend-mode/factor/src-alpha", sf::BlendMode::Factor::SrcAlpha),
+     value("blend-mode/factor/one-minus-src-alpha", sf::BlendMode::Factor::OneMinusSrcAlpha),
+     value("blend-mode/factor/dst-alpha", sf::BlendMode::Factor::DstAlpha),
+     value("blend-mode/factor/one-minus-dst-alpha", sf::BlendMode::Factor::OneMinusDstAlpha)
+     ]
+
+    .enum_<sf::BlendMode::Equation>(core::lisp_intern("*BLENDMODE-EQUATION-ENUM-MAPPER*", "SFML"))
+    [
+     value("blend-mode/equation/add", sf::BlendMode::Equation::Add),
+     value("blend-mode/equation/subtract", sf::BlendMode::Equation::Subtract)
+     ]
+
+    .def_constructor("make-blend-mode", constructor<sf::BlendMode::Factor, sf::BlendMode::Factor, sf::BlendMode::Equation>());
+
+}
+
 
 #endif // CLASP_SFML_BLEND_MODE_HPP
