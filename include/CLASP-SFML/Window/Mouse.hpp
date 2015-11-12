@@ -68,7 +68,7 @@ namespace translate
 	{
 	  if (sym.notnilp()) 
 	    {
-	      core::Symbol_sp converterSym = core::lisp_intern("SFML","*MOUSE-WHEEL-ENUM-MAPPER*");
+	      core::Symbol_sp converterSym = core::lisp_intern("*MOUSE-WHEEL-ENUM-MAPPER*", "SFML");
 	      core::SymbolToEnumConverter_sp converter = 
 		converterSym->symbolValue().as<core::SymbolToEnumConverter_O>();
 	      this->_v = converter->enumForSymbol<sf::Mouse::Wheel>(sym);
@@ -100,7 +100,7 @@ inline class_<sf::Mouse> registerMouse()
      value("mouse-button/x-button2", sf::Mouse::Button::XButton2),
      value("mouse-button/button-count", sf::Mouse::Button::ButtonCount)
      ]
-    .enum_<sf::Mouse::Wheel>(core::lisp_intern("SFML", "*MOUSE-WHEEL-ENUM-MAPPER*"))
+    .enum_<sf::Mouse::Wheel>(core::lisp_intern("*MOUSE-WHEEL-ENUM-MAPPER*", "SFML"))
     [
      value("mouse/wheel/vertical-wheel", sf::Mouse::Wheel::VerticalWheel),
      value("mouse/wheel/horizontal-wheel", sf::Mouse::Wheel::HorizontalWheel)

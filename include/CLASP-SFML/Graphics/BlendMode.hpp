@@ -69,7 +69,7 @@ namespace translate
       {
 	if (sym.notnilp()) 
         {
-	  core::Symbol_sp converterSym = core::lisp_intern("SFML","*BLENDMODE-EQUATION-ENUM-MAPPER*");
+	  core::Symbol_sp converterSym = core::lisp_intern("*BLENDMODE-EQUATION-ENUM-MAPPER*", "SFML");
 	  core::SymbolToEnumConverter_sp converter = 
             converterSym->symbolValue().as<core::SymbolToEnumConverter_O>();
 	  this->_v = converter->enumForSymbol<sf::BlendMode::Equation>(sym);

@@ -41,7 +41,7 @@
 #define EXPORT __attribute__((visibility("default")))
 
 
-namespace translate {
+//namespace translate {
     // template <> struct to_object<const vector<double>&>
     // {
     //     static core::T_sp convert(const vector<double>& v)
@@ -146,19 +146,19 @@ namespace translate {
 
 
   
-  template <> struct from_object<const sf::RenderStates&>
-  {
-    typedef sf::RenderStates DeclareType;
-    DeclareType _v;
-    from_object(core::T_sp obj)
-    {
-      if ( obj.nilp() ) {
-	_v = sf::RenderStates::Default;
-      } else {
-      	SIMPLE_ERROR(BF("Could not convert %s to sf::IntRect") % core::_rep_(obj));
-      }
-    }
-  };
+  // template <> struct from_object<const sf::RenderStates&>
+  // {
+  //   typedef sf::RenderStates DeclareType;
+  //   DeclareType _v;
+  //   from_object(core::T_sp obj)
+  //   {
+  //     if ( obj.nilp() ) {
+  // 	_v = sf::RenderStates::Default;
+  //     } else {
+  //     	SIMPLE_ERROR(BF("Could not convert %s to sf::IntRect") % core::_rep_(obj));
+  //     }
+  //   }
+  // };
 
   // template <> struct from_object<sf::String>
   // {
@@ -176,7 +176,7 @@ namespace translate {
   //     }
   //   }
   // };
-};
+//};
 
 //DECLARE_ENUM_SYMBOL_TRANSLATOR(sf::Event::EventType,core::lisp_intern("event-type"))
 
@@ -190,26 +190,27 @@ extern "C" {
 	  [
 	   registerBlendMode(),
 	   registerDrawable(),
-	   registerShape(),
 	   registerTransformable(),
+	   registerShape(),
+	   
 	   registerCircleShape(),
-
+	   
 	   //FIXME: Add Color translator
 	   registerFont(),
 	   //FIXME: Missing class Glyph
 	   registerImage(),
 	   //FIXME missing PrimitiveType enum
 
-	   //FIXME missing Rect templated class
+	   // //FIXME missing Rect templated class
 	   registerRectangleShape(),
-	   //FIXME missing class RenderStates
+	   // //FIXME missing class RenderStates
 	   registerRenderTarget(),
 	   registerRenderWindow(),
 	   registerTexture(),
-	   // ,
-	   // class_<sf::Drawable> ("drawable",no_default_constructor)
-	   // ,
-	   // class_<sf::Transformable> ("transformable")
+	   // // ,
+	   // // class_<sf::Drawable> ("drawable",no_default_constructor)
+	   // // ,
+	   // // class_<sf::Transformable> ("transformable")
 	   registerSprite()
 	  ];
     }
