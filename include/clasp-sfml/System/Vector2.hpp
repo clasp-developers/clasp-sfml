@@ -1,10 +1,11 @@
-#ifndef CLASP_BINDING_VECTOR2_HPP
-#define CLASP_BINDING_VECTOR2_HPP
-
+#ifndef CLASP_SFML_VECTOR2_HPP
+#define CLASP_SFML_VECTOR2_HPP
 
 #include <SFML/System/Vector2.hpp>
 
 #include <clasp/clbind/clbind.h>
+
+#include <string>
 
 namespace translate
 {
@@ -71,4 +72,22 @@ namespace translate
 }; //end namespace translate
 
 
-#endif //CLASP_BINDING_VECTOR2_HPP
+using namespace clbind;
+
+template<typename T>
+inline class_<sf::Vector2<T>> registerVector2(std::string tname)
+{
+  return
+    class_<sf::Vector2<T>>((tname + "-vector2").c_str(), no_default_constructor)
+    .def_constructor(("make-" + tname + "vector2").c_str(), constructor<T, T>(),
+	 policies<>(), "", "",
+	 R"**(\brief Construct the vector from its coordinates
+
+	 \param X X coordinate
+	 \param Y Y coordinate)**")
+    //FIXME: use tname once def_readwrite is fixed with std::string
+    .def_readwrite("vector-x", &sf::Vector2<T>::x)
+    .def_readwrite("vector-y", &sf::Vector2<T>::y);
+}
+
+#endif //CLASP_SFML_VECTOR2_HPP

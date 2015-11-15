@@ -23,7 +23,7 @@ sfml_set_option(CLASP_GC boehm
 #set(CMAKE_C_COMPILER clang)
 
 # project name
-project(CLASP-SFML)
+project(clasp-sfml)
 
 #Add library suffixes for OSX here.
 
@@ -61,4 +61,4 @@ add_compile_options(-std=c++11
  set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib/${CLASP_GC}/${LC_BUILD_TYPE})
  
  # add the subdirectories
- add_subdirectory(src/CLASP-SFML)
+ add_subdirectory(src/clasp-sfml)

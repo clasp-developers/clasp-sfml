@@ -1,19 +1,19 @@
-#include <CLASP-SFML/translators.hpp>
-#include <CLASP-SFML/Window/Joystick.hpp>
-#include <CLASP-SFML/Window/Keyboard.hpp>
-#include <CLASP-SFML/Window/Mouse.hpp>
-#include <CLASP-SFML/Window/Sensor.hpp>
+#include <clasp-sfml/translators.hpp>
+#include <clasp-sfml/Window/Joystick.hpp>
+#include <clasp-sfml/Window/Keyboard.hpp>
+#include <clasp-sfml/Window/Mouse.hpp>
+#include <clasp-sfml/Window/Sensor.hpp>
 
-#include <CLASP-SFML/Window/Event.hpp>
-#include <CLASP-SFML/Window/VideoMode.hpp>
+#include <clasp-sfml/Window/Event.hpp>
+#include <clasp-sfml/Window/VideoMode.hpp>
 
-#include <CLASP-SFML/System/String.hpp>
-#include <CLASP-SFML/System/Vector2.hpp>
+#include <clasp-sfml/System/String.hpp>
+#include <clasp-sfml/System/Vector2.hpp>
 
-#include <CLASP-SFML/Window/Window.hpp>
-#include <CLASP-SFML/Window/Touch.hpp>
-#include <CLASP-SFML/Window/Context.hpp>
-#include <CLASP-SFML/Window/ContextSettings.hpp>
+#include <clasp-sfml/Window/Window.hpp>
+#include <clasp-sfml/Window/Touch.hpp>
+#include <clasp-sfml/Window/Context.hpp>
+#include <clasp-sfml/Window/ContextSettings.hpp>
 
 #include <clasp/core/foundation.h>
 #include <clasp/clbind/clbind.h>

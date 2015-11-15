@@ -1,33 +1,33 @@
-#include <CLASP-SFML/translators.hpp>
+#include <clasp-sfml/translators.hpp>
 
-#include <CLASP-SFML/System/String.hpp>
-#include <CLASP-SFML/System/Vector2.hpp>
-#include <CLASP-SFML/Window/Event.hpp>
-#include <CLASP-SFML/Window/VideoMode.hpp>
+#include <clasp-sfml/System/String.hpp>
+#include <clasp-sfml/System/Vector2.hpp>
+#include <clasp-sfml/Window/Event.hpp>
+#include <clasp-sfml/Window/VideoMode.hpp>
 
-#include <CLASP-SFML/Graphics/Color.hpp>
-#include <CLASP-SFML/Graphics/Rect.hpp>
+#include <clasp-sfml/Graphics/Color.hpp>
+#include <clasp-sfml/Graphics/Rect.hpp>
 
-#include <CLASP-SFML/Graphics/BlendMode.hpp>
+#include <clasp-sfml/Graphics/BlendMode.hpp>
 
-#include <CLASP-SFML/Graphics/CircleShape.hpp>
-#include <CLASP-SFML/Graphics/ConvexShape.hpp>
-#include <CLASP-SFML/Graphics/Font.hpp>
-#include <CLASP-SFML/Graphics/Image.hpp>
+#include <clasp-sfml/Graphics/CircleShape.hpp>
+#include <clasp-sfml/Graphics/ConvexShape.hpp>
+#include <clasp-sfml/Graphics/Font.hpp>
+#include <clasp-sfml/Graphics/Image.hpp>
 #include <SFML/Graphics/PrimitiveType.hpp>
-#include <CLASP-SFML/Graphics/RectangleShape.hpp>
-#include <CLASP-SFML/Graphics/RenderTarget.hpp>
+#include <clasp-sfml/Graphics/RectangleShape.hpp>
+#include <clasp-sfml/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
 
-#include <CLASP-SFML/Graphics/RenderWindow.hpp>
-#include <CLASP-SFML/Graphics/Texture.hpp>
-#include <CLASP-SFML/Graphics/Drawable.hpp>
-#include <CLASP-SFML/Graphics/Transformable.hpp>
-#include <CLASP-SFML/Graphics/Sprite.hpp>
+#include <clasp-sfml/Graphics/RenderWindow.hpp>
+#include <clasp-sfml/Graphics/Texture.hpp>
+#include <clasp-sfml/Graphics/Drawable.hpp>
+#include <clasp-sfml/Graphics/Transformable.hpp>
+#include <clasp-sfml/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
-#include <CLASP-SFML/Graphics/Shape.hpp>
-#include <CLASP-SFML/Graphics/Transformable.hpp>
+#include <clasp-sfml/Graphics/Shape.hpp>
+#include <clasp-sfml/Graphics/Transformable.hpp>
 
 
 #include <clasp/core/foundation.h>
@@ -41,7 +41,7 @@
 #define EXPORT __attribute__((visibility("default")))
 
 
-//namespace translate {
+namespace translate {
     // template <> struct to_object<const vector<double>&>
     // {
     //     static core::T_sp convert(const vector<double>& v)
@@ -146,19 +146,19 @@
 
 
   
-  // template <> struct from_object<const sf::RenderStates&>
-  // {
-  //   typedef sf::RenderStates DeclareType;
-  //   DeclareType _v;
-  //   from_object(core::T_sp obj)
-  //   {
-  //     if ( obj.nilp() ) {
-  // 	_v = sf::RenderStates::Default;
-  //     } else {
-  //     	SIMPLE_ERROR(BF("Could not convert %s to sf::IntRect") % core::_rep_(obj));
-  //     }
-  //   }
-  // };
+  template <> struct from_object<const sf::RenderStates&>
+  {
+    typedef sf::RenderStates DeclareType;
+    DeclareType _v;
+    from_object(core::T_sp obj)
+    {
+      if ( obj.nilp() ) {
+  	_v = sf::RenderStates::Default;
+      } else {
+      	SIMPLE_ERROR(BF("Could not convert %s to sf::IntRect") % core::_rep_(obj));
+      }
+    }
+  };
 
   // template <> struct from_object<sf::String>
   // {
@@ -176,7 +176,7 @@
   //     }
   //   }
   // };
-//};
+};
 
 //DECLARE_ENUM_SYMBOL_TRANSLATOR(sf::Event::EventType,core::lisp_intern("event-type"))
 
@@ -211,6 +211,9 @@ extern "C" {
 	   // // class_<sf::Drawable> ("drawable",no_default_constructor)
 	   // // ,
 	   // // class_<sf::Transformable> ("transformable")
+	   registerRect<float>("float"),
+	   registerRect<int>("int"),
+	   registerVector2<float>("float"),
 	   registerSprite()
 	  ];
     }

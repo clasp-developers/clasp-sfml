@@ -1,13 +1,13 @@
 #include <SFML/Audio/Listener.hpp>
-#include <CLASP-SFML/Audio/Music.hpp>
-#include <CLASP-SFML/Audio/Sound.hpp>
-#include <CLASP-SFML/Audio/SoundBuffer.hpp>
-#include <CLASP-SFML/Audio/SoundBufferRecorder.hpp>
-#include <CLASP-SFML/Audio/SoundRecorder.hpp>
-#include <CLASP-SFML/Audio/SoundSource.hpp>
-#include <CLASP-SFML/Audio/SoundStream.hpp>
+#include <clasp-sfml/Audio/Music.hpp>
+#include <clasp-sfml/Audio/Sound.hpp>
+#include <clasp-sfml/Audio/SoundBuffer.hpp>
+#include <clasp-sfml/Audio/SoundBufferRecorder.hpp>
+#include <clasp-sfml/Audio/SoundRecorder.hpp>
+#include <clasp-sfml/Audio/SoundSource.hpp>
+#include <clasp-sfml/Audio/SoundStream.hpp>
 #include <SFML/System/InputStream.hpp>
-#include <CLASP-SFML/translators.hpp>
+#include <clasp-sfml/translators.hpp>
 
 #include <clasp/core/foundation.h>
 #include <clasp/clbind/clbind.h>
