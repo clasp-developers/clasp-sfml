@@ -7,23 +7,23 @@
 #include <string>
 #include <stdio.h>
 
-namespace translate
-{
+// namespace translate
+// {
 
-  template <> struct from_object<const sf::IntRect&>
-  {
-    typedef sf::IntRect DeclareType;
-    DeclareType _v;
-    from_object(core::T_sp obj)
-    {
-      if ( obj.nilp() ) {
-      } else {
-      	SIMPLE_ERROR(BF("Could not convert %s to sf::IntRect") % core::_rep_(obj));
-      }
-    }
-  };
+//   template <> struct from_object<const sf::IntRect&>
+//   {
+//     typedef sf::IntRect DeclareType;
+//     DeclareType _v;
+//     from_object(core::T_sp obj)
+//     {
+//       if ( obj.nilp() ) {
+//       } else {
+//       	SIMPLE_ERROR(BF("Could not convert %s to sf::IntRect") % core::_rep_(obj));
+//       }
+//     }
+//   };
 
-}; //end namespace translate
+// }; //end namespace translate
 
 using namespace clbind;
 

@@ -15,7 +15,7 @@ inline class_<sf::Texture> registerTexture()
     . def_constructor("make-texture", constructor<>())
     //. def_constructor("make-texture", constructor<const sf::Texture &>())
     . def("texture/create", &sf::Texture::create)
-    . def("load-from-file", &sf::Texture::loadFromFile, policies<>(), "(self filename &optional (area nil))");
+    . def("load-from-file", &sf::Texture::loadFromFile, policies<>(), "" "" "");
     // . def("load-from-memory", &sf::Texture::loadFromMemory)
     // . def("load-from-stream", &sf::Texture::loadFromStream)
     // . def("load-from-image", &sf::Texture::loadFromImage)

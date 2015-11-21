@@ -15,21 +15,21 @@ inline class_<sf::Font> registerFont()
     .def_constructor("make-font", constructor<>())
     .def_constructor("copy-font", constructor<const sf::Font &>())
 
-    .def("load-from-file", &sf::Font::loadFromFile,
-	 policies<>(), "", "",
-	 R"**(\brief Load the font from a file
+    // .def("load-from-file", &sf::Font::loadFromFile,
+    // 	 policies<>(), "", "",
+    // 	 R"**(\brief Load the font from a file
 
-		The supported font formats are: TrueType, Type 1, CFF,
-		OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR and Type 42.
-		Note that this function know nothing about the standard
-		fonts installed on the user's system, thus you can't
-		load them directly.
+    // 		The supported font formats are: TrueType, Type 1, CFF,
+    // 		OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR and Type 42.
+    // 		Note that this function know nothing about the standard
+    // 		fonts installed on the user's system, thus you can't
+    // 		load them directly.
 
-		\param filename Path of the font file to load
+    // 		\param filename Path of the font file to load
 
-		\return True if loading succeeded, false if it failed
+    // 		\return True if loading succeeded, false if it failed
 
-		\see loadFromMemory, loadFromStream)**")
+    // 		\see loadFromMemory, loadFromStream)**")
 
     .def("load-from-memory", &sf::Font::loadFromMemory,
 	 policies<>(), "", "",
