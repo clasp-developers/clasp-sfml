@@ -12,19 +12,19 @@ inline class_<sf::SoundBuffer> registerSoundBuffer()
   return
     class_<sf::SoundBuffer>("sound-buffer", no_default_constructor)
     .def_constructor("make-sound-buffer", constructor<>())
-    // .def("load-from-file", &sf::SoundBuffer::loadFromFile,
-    // 	 policies<>(), "", "",
-    // 	 R"**(\brief Load the sound buffer from a file
+    .def("load-from-file/sound-buffer", &sf::SoundBuffer::loadFromFile,
+    	 policies<>(), "", "",
+    	 R"**(\brief Load the sound buffer from a file
 
-    // 	      Here is a complete list of all the supported audio formats:
-    // 	      ogg, wav, flac, aiff, au, raw, paf, svx, nist, voc, ircam,
-    // 	      w64, mat4, mat5 pvf, htk, sds, avr, sd2, caf, wve, mpc2k, rf64.
+    	      Here is a complete list of all the supported audio formats:
+    	      ogg, wav, flac, aiff, au, raw, paf, svx, nist, voc, ircam,
+    	      w64, mat4, mat5 pvf, htk, sds, avr, sd2, caf, wve, mpc2k, rf64.
 
-    // 	      \param filename Path of the sound file to load
+    	      \param filename Path of the sound file to load
 
-    // 	      \return True if loading succeeded, false if it failed
+    	      \return True if loading succeeded, false if it failed
 
-    // 	      \see loadFromMemory, loadFromStream, loadFromSamples, saveToFile)**")
+    	      \see loadFromMemory, loadFromStream, loadFromSamples, saveToFile)**")
 
     .def("load-from-memory", &sf::SoundBuffer::loadFromMemory,
 	 policies<>(), "", "",

@@ -72,24 +72,23 @@ inline class_<sf::RenderTarget> registerRenderTarget()
 
 		\return Viewport rectangle, expressed in pixels)**")
 
-    // .def("map-pixel-to-coords", (Vector2f (sf::RenderTarget::*)(const Vector2i&))&sf::RenderTarget::mapPixelToCoords,
-    // 	policies<>(), "", "",
-    // 	R"**(\brief Convert a point from target coordinates to world
-    // 	coordinates, using the current view
+    .def("map-pixel-to-coords-current-view", (sf::Vector2f (sf::RenderTarget::*)(const sf::Vector2i&) const)&sf::RenderTarget::mapPixelToCoords,
+    	policies<>(), "", "",
+    	R"**(\brief Convert a point from target coordinates to world
+    	coordinates, using the current view
 
-    // 	This function is an overload of the mapPixelToCoords
-    // 	function that implicitly uses the current view.
-    // 	It is equivalent to:
-    // 	\code
-    // 	target.mapPixelToCoords(point, target.getView());
-    // 	\endcode
+    	This function is an overload of the mapPixelToCoords
+    	function that implicitly uses the current view.
+    	It is equivalent to:
+    	\code
+    	target.mapPixelToCoords(point, target.getView());
+    	\endcode
 
-    // 	\param point Pixel to convert
+    	\param point Pixel to convert
 
-    // 	\return The converted point, in "world" coordinates
+    	\return The converted point, in "world" coordinates
 
-    // 	\see mapCoordsToPixel)**")
-
+    	\see mapCoordsToPixel)**")
 	   
     .def("map-pixel-to-coords", (sf::Vector2f (sf::RenderTarget::*)(const sf::Vector2i&, const sf::View&) const)&sf::RenderTarget::mapPixelToCoords,
 	 policies<>(), "(self point &optional (view (get-view self)))", "", //FIXME works?

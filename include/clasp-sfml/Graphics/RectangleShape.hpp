@@ -13,7 +13,7 @@ inline class_<sf::RectangleShape, sf::Shape> registerRectangleShape()
     class_<sf::RectangleShape, sf::Shape>("rectangle-shape", no_default_constructor)
     .def_constructor("make-rectangle-shape", constructor<const sf::Vector2f &>())
 
-    .def("rectangle-shape/set-size", &sf::RectangleShape::setSize,
+    .def("set-size/rectangle-shape", &sf::RectangleShape::setSize,
 	 policies<>(), "", "",
 	 R"**(\brief Set the size of the rectangle
 
@@ -21,7 +21,7 @@ inline class_<sf::RectangleShape, sf::Shape> registerRectangleShape()
 
 		\see getSize)**")
 
-    .def("get-size", &sf::RectangleShape::getSize,
+    .def("get-size/rectangle-shape", &sf::RectangleShape::getSize,
 	 policies<>(), "", "",
 	 R"**(\brief Get the size of the rectangle
 

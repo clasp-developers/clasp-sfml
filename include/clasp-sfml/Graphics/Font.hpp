@@ -15,23 +15,23 @@ inline class_<sf::Font> registerFont()
     .def_constructor("make-font", constructor<>())
     .def_constructor("copy-font", constructor<const sf::Font &>())
 
-    // .def("load-from-file", &sf::Font::loadFromFile,
-    // 	 policies<>(), "", "",
-    // 	 R"**(\brief Load the font from a file
+    .def("load-from-file/font", &sf::Font::loadFromFile,
+    	 policies<>(), "", "",
+    	 R"**(\brief Load the font from a file
 
-    // 		The supported font formats are: TrueType, Type 1, CFF,
-    // 		OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR and Type 42.
-    // 		Note that this function know nothing about the standard
-    // 		fonts installed on the user's system, thus you can't
-    // 		load them directly.
+    		The supported font formats are: TrueType, Type 1, CFF,
+    		OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR and Type 42.
+    		Note that this function know nothing about the standard
+    		fonts installed on the user's system, thus you can't
+    		load them directly.
 
-    // 		\param filename Path of the font file to load
+    		\param filename Path of the font file to load
 
-    // 		\return True if loading succeeded, false if it failed
+    		\return True if loading succeeded, false if it failed
 
-    // 		\see loadFromMemory, loadFromStream)**")
+    		\see loadFromMemory, loadFromStream)**")
 
-    .def("load-from-memory", &sf::Font::loadFromMemory,
+    .def("load-from-memory/font", &sf::Font::loadFromMemory,
 	 policies<>(), "", "",
 	 R"**(\brief Load the font from a file in memory
 
@@ -48,41 +48,41 @@ inline class_<sf::Font> registerFont()
 
 		\see loadFromFile, loadFromStream)**")
 
-    // .def("load-from-stream", &sf::Font::loadFromStream,
-    // 	policies<>(), "", "",
-    // 	R"**(\brief Load the font from a custom stream
+    .def("load-from-stream/font", &sf::Font::loadFromStream,
+    	policies<>(), "", "",
+    	R"**(\brief Load the font from a custom stream
 
-    // 	The supported font formats are: TrueType, Type 1, CFF,
-    // 	OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR and Type 42.
-    // 	Warning: SFML cannot preload all the font data in this
-    // 	function, so the contents of \a stream have to remain
-    // 	valid as long as the font is used.
+    	The supported font formats are: TrueType, Type 1, CFF,
+    	OpenType, SFNT, X11 PCF, Windows FNT, BDF, PFR and Type 42.
+    	Warning: SFML cannot preload all the font data in this
+    	function, so the contents of \a stream have to remain
+    	valid as long as the font is used.
 
-    // 	\param stream Source stream to read from
+    	\param stream Source stream to read from
 
-    // 	\return True if loading succeeded, false if it failed
+    	\return True if loading succeeded, false if it failed
 
-    // 	\see loadFromFile, loadFromMemory)**")
+    	\see loadFromFile, loadFromMemory)**")
 
-    // .def("get-info", &sf::Font::getInfo,
-    // 	policies<>(), "", "",
-    // 	R"**(\brief Get the font information
+    .def("get-info", &sf::Font::getInfo,
+    	policies<>(), "", "",
+    	R"**(\brief Get the font information
 
-    // 	\return A structure that holds the font information)**")
+    	\return A structure that holds the font information)**")
 
-    // .def("get-glyph", &sf::Font::getGlyph,
-    // 	policies<>(), "", "",
-    // 	R"**(\brief Retrieve a glyph of the font
+    .def("get-glyph", &sf::Font::getGlyph,
+    	policies<>(), "", "",
+    	R"**(\brief Retrieve a glyph of the font
 
-    // 	If the font is a bitmap font, not all character sizes
-    // 	might be available. If the glyph is not available at the
-    // 	requested size, an empty glyph is returned.
+    	If the font is a bitmap font, not all character sizes
+    	might be available. If the glyph is not available at the
+    	requested size, an empty glyph is returned.
 
-    // 	\param codePoint     Unicode code point of the character to get
-    // 	\param characterSize Reference character size
-    // 	\param bold          Retrieve the bold version or the regular one?
+    	\param codePoint     Unicode code point of the character to get
+    	\param characterSize Reference character size
+    	\param bold          Retrieve the bold version or the regular one?
 
-    // 	\return The glyph corresponding to \a codePoint and \a characterSize)**")
+    	\return The glyph corresponding to \a codePoint and \a characterSize)**")
 
     .def("get-kerning", &sf::Font::getKerning,
 	 policies<>(), "", "",

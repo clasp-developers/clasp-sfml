@@ -13,7 +13,7 @@ inline class_<sf::Image> registerImage()
     class_<sf::Image>("image", no_default_constructor)
     .def_constructor("make-image", constructor<>())
 
-    .def("image/create", (void (sf::Image::*)(unsigned int, unsigned int, const sf::Color&))&sf::Image::create,
+    .def("create/image", (void (sf::Image::*)(unsigned int, unsigned int, const sf::Color&))&sf::Image::create,
 	 policies<>(), "", "",
 	 R"**(\brief Create the image and fill it with a unique color
 
@@ -21,20 +21,20 @@ inline class_<sf::Image> registerImage()
 		\param height Height of the image
 		\param color  Fill color)**")
 
-    // .def("create-from-array", (void (sf::Image::*)(unsigned int, unsigned int, const sf::Uint8*))&sf::Image::create,
-    // 	policies<>(), "", "",
-    // 	R"**(\brief Create the image from an array of pixels
+    .def("create-from-array/image", (void (sf::Image::*)(unsigned int, unsigned int, const sf::Uint8*))&sf::Image::create,
+    	policies<>(), "", "",
+    	R"**(\brief Create the image from an array of pixels
 
-    // 	The \a pixel array is assumed to contain 32-bits RGBA pixels,
-    // 	and have the given \a width and \a height. If not, this is
-    // 	an undefined behavior.
-    // 	If \a pixels is null, an empty image is created.
+    	The \a pixel array is assumed to contain 32-bits RGBA pixels,
+    	and have the given \a width and \a height. If not, this is
+    	an undefined behavior.
+    	If \a pixels is null, an empty image is created.
 
-    // 	\param width  Width of the image
-    // 	\param height Height of the image
-    // 	\param pixels Array of pixels to copy to the image)**")
+    	\param width  Width of the image
+    	\param height Height of the image
+    	\param pixels Array of pixels to copy to the image)**")
 
-    .def("load-from-memory", &sf::Image::loadFromMemory,
+    .def("load-from-memory/image", &sf::Image::loadFromMemory,
 	 policies<>(), "", "",
 	 R"**(\brief Load the image from a file in memory
 
@@ -50,20 +50,20 @@ inline class_<sf::Image> registerImage()
 
 		\see loadFromFile, loadFromStream)**")
 
-    // .def("load-from-stream", &sf::Image::loadFromStream,
-    // 	policies<>(), "", "",
-    // 	R"**(\brief Load the image from a custom stream
+    .def("load-from-stream/image", &sf::Image::loadFromStream,
+    	policies<>(), "", "",
+    	R"**(\brief Load the image from a custom stream
 
-    // 	The supported image formats are bmp, png, tga, jpg, gif,
-    // 	psd, hdr and pic. Some format options are not supported,
-    // 	like progressive jpeg.
-    // 	If this function fails, the image is left unchanged.
+    	The supported image formats are bmp, png, tga, jpg, gif,
+    	psd, hdr and pic. Some format options are not supported,
+    	like progressive jpeg.
+    	If this function fails, the image is left unchanged.
 
-    // 	\param stream Source stream to read from
+    	\param stream Source stream to read from
 
-    // 	\return True if loading was successful
+    	\return True if loading was successful
 
-    // 	\see loadFromFile, loadFromMemory)**")
+    	\see loadFromFile, loadFromMemory)**")
 
     .def("save-to-file", &sf::Image::saveToFile,
 	 policies<>(), "", "",
@@ -97,7 +97,7 @@ inline class_<sf::Image> registerImage()
 		\param color Color to make transparent
 		\param alpha Alpha value to assign to transparent pixels)**")
 
-    .def("copy", &sf::Image::copy,
+    .def("copy/image", &sf::Image::copy,
 	 policies<>(), "", "",
 	 R"**(\brief Copy pixels from another image onto this one
 

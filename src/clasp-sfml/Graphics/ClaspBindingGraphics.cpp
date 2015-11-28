@@ -13,6 +13,7 @@
 #include <clasp-sfml/Graphics/CircleShape.hpp>
 #include <clasp-sfml/Graphics/ConvexShape.hpp>
 #include <clasp-sfml/Graphics/Font.hpp>
+#include <clasp-sfml/Graphics/Glyph.hpp>
 #include <clasp-sfml/Graphics/Image.hpp>
 #include <SFML/Graphics/PrimitiveType.hpp>
 #include <clasp-sfml/Graphics/RectangleShape.hpp>
@@ -190,6 +191,7 @@ extern "C" {
 	  [
 	   registerBlendMode(),
 	   registerDrawable(),
+	   registerGlyph(),
 	   registerTransformable(),
 	   registerShape(),
 	   
@@ -207,6 +209,8 @@ extern "C" {
 	   registerRenderTarget(),
 	   registerRenderWindow(),
 	   registerTexture(),
+	   registerTextureBind(),
+	   registerTextureGetMaximumSize(),
 	   // // ,
 	   // // class_<sf::Drawable> ("drawable",no_default_constructor)
 	   // // ,

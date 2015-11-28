@@ -59,8 +59,8 @@ inline class_<sf::ContextSettings> registerContextSettings()
 {
   return
     class_<sf::ContextSettings>("context-settings")
-    .def_constructor("context-settings", constructor<unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int>(),
-	 policies<>(), "", "",
+    .def_constructor("make-context-settings", constructor<unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int>(),
+	 policies<>(), "(&optional (depth 0) (stencil 0) (antialiasing 0) (major 1) (minor 1) (attributes 0))", "",
 	 R"**(\brief Default constructor
 
 	 \param depth        Depth buffer bits

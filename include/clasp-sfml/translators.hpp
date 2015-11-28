@@ -11,7 +11,7 @@ namespace translate
   template <>
   struct from_object<const void *>
   {
-    typedef	const void* DeclareType;
+    typedef const void* DeclareType;
     DeclareType _v;
     from_object(core::T_sp obj)
     {
@@ -69,6 +69,34 @@ namespace translate
   };
 
 
+  template<>
+  struct from_object<const unsigned char *>
+  {
+    typedef const unsigned char * DeclareType;
+    DeclareType _v;
+    from_object(core::T_sp obj)
+    {
+      if (core::Pointer_sp opointer = obj.asOrNull<core::Pointer_O>())
+      {
+        _v = static_cast<const unsigned char *>(opointer->ptr());
+      }
+      else
+      {
+        SIMPLE_ERROR(BF("Could not convert %s to const unsigned char*") % core::_rep_(obj));
+      }
+    };
+  };
+  
+  template <>
+  struct to_object<const unsigned char *>
+  {
+    typedef const unsigned char *GivenType;
+    static core::T_sp convert(GivenType v)
+    {
+      core::Integer_sp oi = core::Integer_O::create((gc::Fixnum)v);
+      return oi;
+    }
+  };
   
   template <>
   struct from_object<short int>
