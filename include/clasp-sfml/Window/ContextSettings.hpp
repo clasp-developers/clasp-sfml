@@ -61,14 +61,14 @@ inline class_<sf::ContextSettings> registerContextSettings()
     class_<sf::ContextSettings>("context-settings")
     .def_constructor("make-context-settings", constructor<unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int>(),
 	 policies<>(), "(&optional (depth 0) (stencil 0) (antialiasing 0) (major 1) (minor 1) (attributes 0))", "",
-	 R"**(\brief Default constructor
-
-	 \param depth        Depth buffer bits
-	 \param stencil      Stencil buffer bits
-	 \param antialiasing Antialiasing level
-	 \param major        Major number of the context version
-	 \param minor        Minor number of the context version
-	 \param attributes   Attribute flags of the context)**")
+	 R"**(Default constructor
+* Arguments
+- DEPTH :: Depth buffer bits
+- STENCIL :: Stencil buffer bits
+- ANTIALIASING :: level
+- MAJOR :: Major number of the context version
+- MINOR :: Minor number of the context version
+- ATTRIBUTES :: Attribute flags of the context)**")
     .enum_<sf::ContextSettings::Attribute>(core::lisp_intern("*CONTEXT-SETTINGS-ATTRIBUTE-ENUM-MAPPER*", "SFML"))
     [ value("Default", sf::ContextSettings::Attribute::Default),
       value("Core", sf::ContextSettings::Attribute::Core),

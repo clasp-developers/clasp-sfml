@@ -112,11 +112,11 @@ inline scope registerMouseIsButtonPressed()
   return
     def("mouse/is-button-pressed", &sf::Mouse::isButtonPressed,
 	policies<>(), "", "",
-	R"**(\brief Check if a mouse button is pressed
-
-     \param button Button to check
-
-     \return True if the button is pressed, false otherwise)**");
+	R"**(Check if a mouse button is pressed
+* Arguments
+- BUTTON :: to check
+* Returns
+True if the button is pressed, false otherwise)**");
 }
 
 inline scope registerMouseGetPosition()
@@ -124,12 +124,11 @@ inline scope registerMouseGetPosition()
   return
     def("mouse/get-position", (sf::Vector2i (*)())&sf::Mouse::getPosition,
 	policies<>(), "", "",
-	R"**(\brief Get the current position of the mouse in desktop coordinates
-
-     This function returns the global position of the mouse
-     cursor on the desktop.
-
-     \return Current position of the mouse)**");
+	R"**(Get the current position of the mouse in desktop coordinates
+* Description
+This function returns the global position of the mouse cursor on the desktop.
+* Returns
+Current position of the mouse)**");
 }
 
 inline scope registerMouseGetPositionRelativeTo()
@@ -137,14 +136,14 @@ inline scope registerMouseGetPositionRelativeTo()
   return
     def("mouse/get-position-relative-to", (sf::Vector2i (*)(const sf::Window&))&sf::Mouse::getPosition,
 	policies<>(), "", "",
-	R"**(\brief Get the current position of the mouse in window coordinates
-
+	R"**(Get the current position of the mouse in window coordinates
+* Description
      This function returns the current position of the mouse
      cursor, relative to the given window.
-
-     \param relativeTo Reference window
-
-     \return Current position of the mouse)**");
+* Arguments
+- RELATIVETO :: window
+* Returns
+Current position of the mouse)**");
 }
 
 inline scope registerMouseSetPosition()
@@ -152,12 +151,11 @@ inline scope registerMouseSetPosition()
   return
     def("mouse/set-position", (void (*)(const sf::Vector2i&))&sf::Mouse::setPosition,
 	policies<>(), "", "",
-	R"**(\brief Set the current position of the mouse in desktop coordinates
-
-     This function sets the global position of the mouse
-     cursor on the desktop.
-
-     \param position New position of the mouse)**");
+	R"**(Set the current position of the mouse in desktop coordinates
+* Description
+This function sets the global position of the mouse cursor on the desktop.
+* Arguments
+- POSITION :: position of the mouse)**");
 }
 
 inline scope registerMouseSetPositionRelativeTo()
@@ -166,12 +164,11 @@ inline scope registerMouseSetPositionRelativeTo()
     def("mouse/set-position-relative", (void (*)(const sf::Vector2i&, const sf::Window&))&sf::Mouse::setPosition,
 	policies<>(), "", "",
 	R"**(\brief Set the current position of the mouse in window coordinates
-
-     This function sets the current position of the mouse
-     cursor, relative to the given window.
-
-     \param position New position of the mouse
-     \param relativeTo Reference window)**");
+* Description
+This function sets the current position of the mouse cursor, relative to the given window.
+* Arguments
+- POSITION :: position of the mouse
+- RELATIVETO :: window)**");
 }
 
 

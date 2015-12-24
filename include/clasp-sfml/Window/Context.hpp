@@ -13,11 +13,11 @@ inline class_<sf::Context> registerContext()
     class_<sf::Context>("context")
     .def("set-active", &sf::Context::setActive,
 	 policies<>(), "", "",
-	 R"**(\brief Activate or deactivate explicitly the context
-
-		\param active True to activate, false to deactivate
-
-		\return True on success, false on failure)**")
+	 R"**(Activate or deactivate explicitly the context
+* Arguments
+- ACTIVE :: to activate, false to deactivate
+* Returns
+True on success, false on failure)**")
 
     //FIXME: missing ContextSettings
     ;

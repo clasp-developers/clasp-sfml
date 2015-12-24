@@ -180,11 +180,11 @@ inline scope registerKeyboardIsKeyPressed()
   return
     def("keyboard/is-key-pressed", &sf::Keyboard::isKeyPressed,
 	policies<>(), "", "",
-	R"**(\brief Check if a key is pressed
-
-     \param key Key to check
-
-     \return True if the key is pressed, false otherwise)**");
+	R"**(Check if a key is pressed
+* Arguments
+- KEY :: to check
+* Returns
+True if the key is pressed, false otherwise)**");
 }
 
 inline scope registerKeyboardSetVirtualKeyboardVisible()
@@ -192,16 +192,16 @@ inline scope registerKeyboardSetVirtualKeyboardVisible()
   return
     def("keyboard/set-virtual-keyboard-visible", &sf::Keyboard::setVirtualKeyboardVisible,
 	policies<>(), "", "",
-	R"**(\brief Show or hide the virtual keyboard
+	R"**(Show or hide the virtual keyboard
+* Description
+Warning: the virtual keyboard is not supported on all
+systems. It will typically be implemented on mobile OSes
+Android, iOS) but not on desktop OSes (Windows, Linux, ...).
 
-     Warning: the virtual keyboard is not supported on all
-     systems. It will typically be implemented on mobile OSes
-     (Android, iOS) but not on desktop OSes (Windows, Linux, ...).
-
-     If the virtual keyboard is not available, this function does
-     nothing.
-
-     \param visible True to show, false to hide)**");
+If the virtual keyboard is not available, this function does
+nothing.
+* Arguments
+- VISIBLE :: to show, false to hide)**");
 }
 
 

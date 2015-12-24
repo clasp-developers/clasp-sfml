@@ -18,11 +18,11 @@ inline scope registerTouchIsDown()
   return
     def("touch/is-down", (bool (*)(unsigned int))&sf::Touch::isDown,
 	policies<>(), "", "",
-	R"**(\brief Check if a touch event is currently down
-
-     \param finger Finger index
-
-     \return True if \a finger is currently touching the screen, false otherwise)**");
+	R"**(Check if a touch event is currently down
+* Arguments
+- FINGER :: index
+* Returns
+True if \a finger is currently touching the screen, false otherwise)**");
 }
 
 inline scope registerTouchGetPosition()
@@ -30,14 +30,14 @@ inline scope registerTouchGetPosition()
   return
     def("touch/get-position", (sf::Vector2i (*)(unsigned int))&sf::Touch::getPosition,
 	policies<>(), "", "",
-	R"**(\brief Get the current position of a touch in desktop coordinates
-
-     This function returns the current touch position
-     in global (desktop) coordinates.
-
-     \param finger Finger index
-
-     \return Current position of \a finger, or undefined if it's not down)**");
+	R"**(Get the current position of a touch in desktop coordinates
+* Description
+This function returns the current touch position
+in global (desktop) coordinates.
+* Arguments
+- FINGER :: index
+* Returns
+Current position of \a finger, or undefined if it's not down)**");
 }
 
 inline scope registerTouchGetPositionRelative()
@@ -45,15 +45,14 @@ inline scope registerTouchGetPositionRelative()
   return
     def("touch/get-position-relative", (sf::Vector2i (*)(unsigned int, const sf::Window&))&sf::Touch::getPosition,
 	policies<>(), "", "",
-	R"**(\brief Get the current position of a touch in window coordinates
-
-     This function returns the current touch position
-     relative to the given window.
-
-     \param finger Finger index
-     \param relativeTo Reference window
-
-     \return Current position of \a finger, or undefined if it's not down)**");
+	R"**(Get the current position of a touch in window coordinates
+* Description
+This function returns the current touch position relative to the given window.
+* Arguments
+- FINGER :: index
+- RELATIVETO :: window
+* Returns
+Current position of \a finger, or undefined if it's not down)**");
 }
 
 

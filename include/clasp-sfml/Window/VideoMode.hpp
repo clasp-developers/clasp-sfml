@@ -43,13 +43,13 @@ inline class_<sf::VideoMode> registerVideoMode()
     .def_constructor("make-video-mode", constructor<unsigned int, unsigned int, unsigned int>())
     .def("is-valid", &sf::VideoMode::isValid,
 	 policies<>(), "", "",
-	 R"**(\brief Tell whether or not the video mode is valid
-
-		The validity of video modes is only relevant when using
-		fullscreen windows; otherwise any video mode can be used
-		with no restriction.
-
-		\return True if the video mode is valid for fullscreen mode)**")
+	 R"**(Tell whether or not the video mode is valid
+* Description
+The validity of video modes is only relevant when using
+fullscreen windows; otherwise any video mode can be used
+with no restriction.
+* Returns
+True if the video mode is valid for fullscreen mode)**")
     
     .def_readonly("width", &sf::VideoMode::width)
     .def_readonly("height", &sf::VideoMode::height)
@@ -61,9 +61,9 @@ inline scope registerVideoModeGetDesktopMode()
   return
     def("video-mode/get-desktop-mode", &sf::VideoMode::getDesktopMode,
 	policies<>(), "", "",
-	R"**(\brief Get the current desktop video mode
-
-     \return Current desktop video mode)**");
+	R"**(Get the current desktop video mode
+* Returns
+Current desktop video mode)**");
 }
 
 inline scope registerVideoModeGetFullscreenModes()
@@ -71,17 +71,17 @@ inline scope registerVideoModeGetFullscreenModes()
   return
     def("video-mode/get-fullscreen-modes", &sf::VideoMode::getFullscreenModes,
 	policies<>(), "", "",
-	R"**(\brief Retrieve all the video modes supported in fullscreen mode
-
-     When creating a fullscreen window, the video mode is restricted
-     to be compatible with what the graphics driver and monitor
-     support. This function returns the complete list of all video
-     modes that can be used in fullscreen mode.
-     The returned array is sorted from best to worst, so that
-     the first element will always give the best mode (higher
-     width, height and bits-per-pixel).
-
-     \return Array containing all the supported fullscreen modes)**");
+	R"**(Retrieve all the video modes supported in fullscreen mode
+* Description
+When creating a fullscreen window, the video mode is restricted
+to be compatible with what the graphics driver and monitor
+support. This function returns the complete list of all video
+modes that can be used in fullscreen mode.
+The returned array is sorted from best to worst, so that
+the first element will always give the best mode (higher
+width, height and bits-per-pixel).
+* Returns
+Array containing all the supported fullscreen modes)**");
 }
 
 

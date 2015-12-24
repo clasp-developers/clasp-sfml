@@ -73,11 +73,11 @@ inline scope registerJoystickIsConnected()
   return
     def("joystick/is-connected", &sf::Joystick::isConnected,
 	policies<>(), "", "",
-	R"**(\brief Check if a joystick is connected
-
-     \param joystick Index of the joystick to check
-
-     \return True if the joystick is connected, false otherwise)**");
+	R"**(Check if a joystick is connected
+* Arguments
+- JOYSTICK :: of the joystick to check
+* Returns
+True if the joystick is connected, false otherwise)**");
 }
 
 inline scope registerJoystickGetButtonCount()
@@ -85,13 +85,12 @@ inline scope registerJoystickGetButtonCount()
   return
     def("joystick/get-button-count", &sf::Joystick::getButtonCount,
 	policies<>(), "", "",
-	R"**(\brief Return the number of buttons supported by a joystick
-
-     If the joystick is not connected, this function returns 0.
-
-     \param joystick Index of the joystick
-
-     \return Number of buttons supported by the joystick)**");
+	R"**(Return the number of buttons supported by a joystick
+If the joystick is not connected, this function returns 0.
+* Arguments
+- JOYSTICK :: of the joystick
+* Returns
+ Number of buttons supported by the joystick)**");
 }
 
 inline scope registerJoystickHasAxis()
@@ -99,14 +98,13 @@ inline scope registerJoystickHasAxis()
   return
     def("joystick/has-axis", &sf::Joystick::hasAxis,
 	policies<>(), "", "",
-	R"**(\brief Check if a joystick supports a given axis
-
-     If the joystick is not connected, this function returns false.
-
-     \param joystick Index of the joystick
-     \param axis     Axis to check
-
-     \return True if the joystick supports the axis, false otherwise)**");
+	R"**(Check if a joystick supports a given axis
+If the joystick is not connected, this function returns false.
+* Arguments
+- JOYSTICK :: of the joystick
+- AXIS :: Axis to check
+* Returns
+True if the joystick supports the axis, false otherwise)**");
 }
 
 inline scope registerJoystickIsButtonPressed()
@@ -114,14 +112,13 @@ inline scope registerJoystickIsButtonPressed()
   return
     def("joystick/is-button-pressed", &sf::Joystick::isButtonPressed,
 	policies<>(), "", "",
-	R"**(\brief Check if a joystick button is pressed
-
-     If the joystick is not connected, this function returns false.
-
-     \param joystick Index of the joystick
-     \param button   Button to check
-
-     \return True if the button is pressed, false otherwise)**");
+	R"**(Check if a joystick button is pressed
+If the joystick is not connected, this function returns false.
+* Arguments
+- JOYSTICK :: of the joystick
+- BUTTON :: Button to check
+* Returns
+True if the button is pressed, false otherwise)**");
 }
 
 inline scope registerJoystickGetAxisPosition()
@@ -129,14 +126,13 @@ inline scope registerJoystickGetAxisPosition()
   return
     def("joystick/get-axis-position", &sf::Joystick::getAxisPosition,
 	policies<>(), "", "",
-	R"**(\brief Get the current position of a joystick axis
-
-     If the joystick is not connected, this function returns 0.
-
-     \param joystick Index of the joystick
-     \param axis     Axis to check
-
-     \return Current position of the axis, in range [-100 .. 100])**");
+	R"**(Get the current position of a joystick axis
+If the joystick is not connected, this function returns 0.
+* Arguments
+- JOYSTICK :: of the joystick
+- AXIS :: Axis to check
+* Returns
+Current position of the axis, in range [-100 .. 100])**");
 }
 
 inline scope registerJoystickGetIdentification()
@@ -144,11 +140,11 @@ inline scope registerJoystickGetIdentification()
   return
     def("joystick/get-identification", &sf::Joystick::getIdentification,
 	policies<>(), "", "",
-	R"**(\brief Get the joystick information
-
-     \param joystick Index of the joystick
-
-     \return Structure containing joystick information.)**");
+	R"**(Get the joystick information
+* Arguments
+- JOYSTICK :: of the joystick
+* Returns
+Structure containing joystick information.)**");
 }
 
 inline scope registerJoystickUpdate()
@@ -156,12 +152,12 @@ inline scope registerJoystickUpdate()
   return
     def("joystick/update", &sf::Joystick::update,
 	policies<>(), "", "",
-	R"**(\brief Update the states of all joysticks
-
-     This function is used internally by SFML, so you normally
-     don't have to call it explicitly. However, you may need to
-     call it if you have no window yet (or no window at all):
-     in this case the joystick states are not updated automatically.)**");
+	R"**(Update the states of all joysticks
+* Description
+This function is used internally by SFML, so you normally
+don't have to call it explicitly. However, you may need to
+call it if you have no window yet (or no window at all):
+in this case the joystick states are not updated automatically.)**");
 }
 
 

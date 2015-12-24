@@ -59,7 +59,7 @@ inline class_<sf::RenderTarget> registerRenderTarget()
 
 		\see setView, getView)**")
 
-    .def("get-viewport", &sf::RenderTarget::getViewport,
+    .def("get-viewport/render-target", &sf::RenderTarget::getViewport,
 	 policies<>(), "", "",
 	 R"**(\brief Get the viewport of a view, applied to this render target
 

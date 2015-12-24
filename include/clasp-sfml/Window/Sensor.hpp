@@ -72,11 +72,11 @@ inline scope registerSensorIsAvailable()
   return
     def("sensor/is-available", &sf::Sensor::isAvailable,
 	policies<>(), "", "",
-	R"**(\brief Check if a sensor is available on the underlying platform
-
-     \param sensor Sensor to check
-
-     \return True if the sensor is available, false otherwise)**");
+	R"**(Check if a sensor is available on the underlying platform
+* Arguments
+- SENSOR :: to check
+* Returns
+True if the sensor is available, false otherwise)**");
 }
 
 inline scope registerSensorSetEnabled()
@@ -84,16 +84,16 @@ inline scope registerSensorSetEnabled()
   return
     def("sensor/set-enabled", &sf::Sensor::setEnabled,
 	policies<>(), "", "",
-	R"**(\brief Enable or disable a sensor
+	R"**(Enable or disable a sensor
+* Description
+All sensors are disabled by default, to avoid consuming too
+much battery power. Once a sensor is enabled, it starts
+sending events of the corresponding type.
 
-     All sensors are disabled by default, to avoid consuming too
-     much battery power. Once a sensor is enabled, it starts
-     sending events of the corresponding type.
-
-     This function does nothing if the sensor is unavailable.
-
-     \param sensor  Sensor to enable
-     \param enabled True to enable, false to disable)**");
+This function does nothing if the sensor is unavailable.
+* Arguments
+- SENSOR :: Sensor to enable
+- ENABLED :: to enable, false to disable)**");
 }
 
 inline scope registerSensorGetValue()
@@ -101,11 +101,11 @@ inline scope registerSensorGetValue()
   return
     def("sensor/get-value", &sf::Sensor::getValue,
 	policies<>(), "", "",
-	R"**(\brief Get the current sensor value
-
-     \param sensor Sensor to read
-
-     \return The current sensor value)**");
+	R"**(Get the current sensor value
+* Arguments
+- SENSOR :: to read
+* Returns
+The current sensor value)**");
 }
 
 

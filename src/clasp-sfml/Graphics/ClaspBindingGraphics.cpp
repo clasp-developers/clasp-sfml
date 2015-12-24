@@ -29,6 +29,7 @@
 #include <SFML/Graphics/RenderStates.hpp>
 #include <clasp-sfml/Graphics/Shape.hpp>
 #include <clasp-sfml/Graphics/Transformable.hpp>
+#include <clasp-sfml/Graphics/View.hpp>
 
 
 #include <clasp/core/foundation.h>
@@ -218,7 +219,8 @@ extern "C" {
 	   registerRect<float>("float"),
 	   registerRect<int>("int"),
 	   registerVector2<float>("float"),
-	   registerSprite()
+	   registerSprite(),
+	   registerView()
 	  ];
     }
 }

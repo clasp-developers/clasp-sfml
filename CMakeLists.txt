@@ -28,8 +28,10 @@ project(clasp-sfml)
 #Add library suffixes for OSX here.
 
 
-find_path(CLASP_INCLUDE_PATH clasp/clasp.h HINTS $ENV{CLASP_HOME}/include
+find_path(CLASP_INCLUDE_PATH clasp/clbind/clbind.h HINTS $ENV{CLASP_HOME}/include
   DOC "The include directory of clasp")
+find_path(CLASP_SRC_MAIN_PATH clasp_gc.cc HINTS $ENV{CLASP_HOME}/src/main/
+  DOC "The path to clasp_gc.cc, hopefully a temporary necessity")
 find_path(SFML_INCLUDE_PATH SFML/System.hpp HINTS $ENV{SFML_INCLUDE_DIR}
   DOC "The include directory of SFML")
 
@@ -41,6 +43,8 @@ find_library(CLASP_CLBIND_LIB clasp-clbind
 # add the SFML header path
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include
   ${CLASP_INCLUDE_PATH}
+  ${CLASP_INCLUDE_PATH}/clasp/main
+  ${CLASP_SRC_MAIN_PATH}
   ${SFML_INCLUDE_PATH})
 
 add_compile_options(-std=c++11
